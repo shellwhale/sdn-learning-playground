@@ -27,5 +27,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN chown -R frr:frr /etc/frr
+RUN /etc/init.d/frr start
 
 ENTRYPOINT /etc/init.d/frr start && /bin/bash
