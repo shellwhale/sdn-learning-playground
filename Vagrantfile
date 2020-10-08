@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
     sudo apt update
     sudo apt install ansible git aptitude python3 -y
     git clone https://github.com/containernet/containernet.git
+    git clone https://github.com/shellwhale/gracious-ritchie.git
     cd containernet/ansible
     sudo ansible-playbook -i "localhost," -c local install.yml
     cd ..
