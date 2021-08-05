@@ -8,8 +8,8 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu1804"
-  config.vm.hostname = "gracious-ritchie"
-  config.vm.define "gracious-ritchie"
+  config.vm.hostname = "sdn-learning-playground"
+  config.vm.define "sdn-learning-playground"
   config.vm.synced_folder  ".", "/vagrant", disabled: false, create: true
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt update
