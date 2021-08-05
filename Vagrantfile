@@ -20,5 +20,6 @@ Vagrant.configure("2") do |config|
     cd ..
     sudo make develop
     sudo apt-get install docker-compose -y
+    echo "cd /vagrant" >> /home/vagrant/.bashrc
   SHELL
 end
