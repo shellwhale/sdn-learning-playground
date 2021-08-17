@@ -1,3 +1,5 @@
 .vagrant
 faucet/log
 config
+labs/*/results
+*.log

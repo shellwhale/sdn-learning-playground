@@ -1,0 +1,14 @@
+ssh -p 8101 karaf@ip
+
+flows
+devices
+hosts
+links
+
+app activate org.onosproject.openflow
+app activate org.onosproject.fwd
+
+flows
+devices
+hosts
+links

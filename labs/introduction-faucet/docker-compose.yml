@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    faucet:
+        container_name: faucet
+        restart: always
+        volumes:
+            - ./etc/faucet/:/etc/faucet/
+            - ./var/log/faucet/:/var/log/faucet/
+        ports:
+            - '6653:6653'
+            - '9302:9302'
+        image: faucet/faucet:latest

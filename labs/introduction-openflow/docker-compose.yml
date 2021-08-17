@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+    onos:
+        ports:
+            - '8101:8101'
+            - '8181:8181'
+            - '6653:6653'
+        image: 'onosproject/onos:latest'

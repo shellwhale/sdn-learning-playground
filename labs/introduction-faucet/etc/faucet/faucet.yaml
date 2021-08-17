@@ -1,0 +1,15 @@
+vlans:
+    vlan10:
+        vid: 10
+
+dps:
+    s1:
+        dp_id: 0x1
+        hardware: "Open vSwitch"
+        interfaces:
+            1:
+                name: "h1"
+                native_vlan: vlan10
+            2:
+                name: "h2"
+                native_vlan: vlan10

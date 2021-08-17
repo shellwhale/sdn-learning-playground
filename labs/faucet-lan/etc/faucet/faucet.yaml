@@ -1,0 +1,49 @@
+vlans:
+    vlan10:
+        vid: 10
+        faucet_mac: "00:00:00:00:00:10"
+        faucet_vips: ["10.10.10.254/24"]
+    vlan20:
+        vid: 20
+        faucet_mac: "00:00:00:00:00:20"
+        faucet_vips: ["20.20.20.254/24"]
+    vlan30:
+        vid: 30
+        faucet_mac: "00:00:00:00:00:30"
+        faucet_vips: ["30.30.30.254/24"]
+
+routers:
+    router-1:
+        vlans: [vlan10, vlan20, vlan30]
+
+dps:
+    s1:
+        dp_id: 0x1
+        hardware: "Open vSwitch"
+        interfaces:
+            1:
+                name: "h1"
+                native_vlan: vlan10
+            2:
+                name: "h2"
+                native_vlan: vlan20
+            3:
+                name: "h3"
+                native_vlan: vlan30
+                acls_in: [block-ping, allow-http]
+                acls_out: [block-ping, allow-http]
+
+acls:
+    block-ping:
+        - rule:
+            dl_type: 0x800 # Identifiant d'IPv4
+            ip_proto: 1
+            actions:
+                allow: False
+    allow-http:
+        - rule:
+            dl_type: 0x800
+            nw_proto: 6 # Identifiant de TCP
+            tcp_dst: 80
+            actions:
+                allow: True
